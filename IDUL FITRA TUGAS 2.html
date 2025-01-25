@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web | Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      padding: 20px;
+      color: white;
+    }
+
+    .sidebar nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Styles */
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero img {
+      max-width: 200px;
+      margin-right: 20px;
+    }
+
+    .hero-content h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #2980b9;
+    }
+
+    .hero-content h2 {
+      margin: 10px 0;
+      font-size: 1.5em;
+      color: #34495e;
+    }
+
+    .hero-content p {
+      line-height: 1.6;
+    }
+
+    .action-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .action-btn:hover {
+      background-color: #2980b9;
+    }
+
+    /* Portfolio Section */
+    #portfolio {
+      margin-top: 20px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .project img {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid #2980b9; /* Frame around image */
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project h2 {
+      font-size: 1.2em;
+      margin: 0 0 10px;
+    }
+
+    .project p {
+      line-height: 1.5;
+    }
+
+    /* Blog Section */
+    #blog {
+      margin-top: 20px;
+    }
+
+    .blog-post {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .blog-post h2 {
+      margin: 0 0 10px;
+      font-size: 1.4em;
+      color: #2980b9;
+    }
+
+    .blog-post p {
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .blog-post a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .blog-post a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    #contact {
+      margin-top: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer ul li {
+      margin: 0 10px;
+    }
+
+    .footer ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer ul li img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portofolio">Portofolio</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="content">
+      <section class="hero" id="about">
+        <img src="gambar15.jpeg" alt="Online Illustration" />
+        <div class="hero-content">
+          <h1>WELCOME</h1>
+          <h2>Saya adalah Mahasiswa Semester 5 Jurusan Teknik Informatika</h2>
+          <p>
+            Halo, Perkenalkan! Saya IDUL FITRA, seorang mahasiswa Teknik Informatika yang antusias
+            dengan dunia teknologi, pemrograman, dan pengembangan sistem.
+          </p>
+          <a href="Profil.html" class="action-btn">Profile Saya</a>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio">
+        <h1>Portofolio Saya</h1>
+        <div class="portfolio-grid">
+          <div class="project">
+            <img src="32.png".jpg" alt="Desain Grafis">
+            <h2>Desain Grafis</h2>
+            <p>Desain grafis yang menarik menggunakan Canva.</p>
+          </div>
+          <div class="project">
+            <img src="gambar17.jpg" alt="Web Development">
+            <h2>Web Development</h2>
+            <p>Proyek web development saya fokus pada UX dan desain antarmuka yang intuitif.</p>
+          </div>
+        </div>
+      </section>
+
+  <!-- Blog Section -->
+<section id="blog">
+  <h1>Blog</h1>
+  <article class="blog-post">
+    <h2>Keahlian dalam Pemrograman Web, HTML, dan Desain Grafis</h2>
+    <p>
+      Saya memiliki keahlian yang kuat dalam pemrograman web, khususnya dalam pengembangan front-end dan back-end. 
+      Dengan pemahaman mendalam tentang HTML, CSS, dan JavaScript, saya mampu menciptakan situs web yang responsif, 
+      estetis, dan mudah digunakan. Pengalaman saya dalam HTML memungkinkan saya untuk membangun struktur halaman 
+      yang semantik dan terorganisir, sementara CSS membantu saya memberikan sentuhan desain yang menarik dan konsisten.
+    </p>
+    <p>
+      Selain keahlian teknis, saya juga memiliki latar belakang dalam desain grafis. Saya terbiasa menggunakan alat 
+      seperti Adobe Photoshop, Illustrator, dan Canva untuk menciptakan desain yang kreatif dan profesional. Kombinasi 
+      keahlian desain grafis dan pemrograman web memungkinkan saya untuk menghasilkan antarmuka pengguna (UI) yang tidak 
+      hanya indah secara visual tetapi juga intuitif dan user-friendly.
+    </p>
+    <p>
+      Dengan pemahaman yang mendalam tentang aspek teknis dan estetis, saya dapat menggabungkan elemen desain dan fungsi 
+      untuk menciptakan solusi digital yang efektif dan menarik. Saya selalu berusaha untuk belajar dan berkembang dalam 
+      bidang ini, mengikuti tren terbaru dan praktik terbaik untuk memastikan hasil kerja saya selalu up-to-date dan relevan.
+    </p>
+  </article>
+</section>
+
+
+ <!-- Contact Section -->
+<section id="contact">
+  <h1>Contact Me</h1>
+  <form>
+    <div class="form-group">
+      <label for="phone">No HP</label>
+      <input type="text" id="phone" name="phone" value="082348880864" readonly />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="idulfitra054@gmail.com" readonly />
+    </div>
+  </form>
+</section>
+
+
+      <!-- Footer -->
+      <div class="footer">
+        <footer>
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/">
+                <img src="gambar 1.jpg" alt="Instagram" />
+                <p>Instagram</p>
+              </a>
+            </li>
+            <li>
+              <a href="https://web.facebook.com/">
+                <img src="gambar 2.png" alt="Facebook" />
+                <p>Facebook</p>
+              </a>
+            </li>
+            <li>
+              <a href="https://web.telegram.org">
+                <img src="gambar 4.jpg" alt="Telegram" />
+                <p>Telegram</p>
+              </a>
+            </li>
+          </ul>
+          
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
